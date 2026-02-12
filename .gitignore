@@ -1,0 +1,20 @@
+# Виртуальное окружение
+venv/
+.venv/
+
+# Python кэш и мусор
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Окружение и секреты
+.env
+*.env
+
+# Логи и временные файлы
+*.log

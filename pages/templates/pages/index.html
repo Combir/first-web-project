@@ -26,10 +26,9 @@
 
                     <div class="card-body p-4">
                         <h5 class="card-title fw-bold">{{ course.title }}</h5>
-                        
-                        <p class="card-text text-muted mt-3">
-                            
-                        </p>
+
+                        {# Выводим описание курса, обрезанное до 20 слов для аккуратного отображения #}
+                        <p class="card-text text-muted mt-3">{{ course.description|truncatewords:20 }}</p>
 
                         <div class="mt-4">
                             <p><strong>Уровень:</strong> {{ course.get_level_display }}</p>

@@ -4,49 +4,53 @@
 
 {% block content %}
 
-    <!-- Hero-section -->
     <h1>{{ welcome_message }}</h1>
     <p class="lead">Онлайн-занятия с индивидуальным подходом</p>
+    
     <div class="my-4">
         <a href="#" class="btn btn-primary me-3">Определить свой уровень</a>
         <a href="#" class="btn btn-outline-primary">Подобрать обучение</a>
     </div>
 
-    <h2 class="mt-5">Что мы предлагаем</h2>
+    <h2 class="mt-5">Наши курсы</h2>
+    
     <div class="row mt-4">
-        <!-- Карточка 1 -->
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="https://placehold.co/300x180" class="card-img-top" alt="Разговорный">
-                <div class="card-body">
-                    <h5 class="card-title">Записаться на пробный урок</h5>
-                    <p class="card-text">Практика живой речи и снятие языкового барьера.</p>
-                    <a href="#" class="btn btn-dark">Подробнее</a>
+        {% for course in courses %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="bg-light py-4 text-center">
+                        <h1 class="display-1 fw-bold text-muted mb-0">
+                            {{ course.level }}
+                        </h1>
+                    </div>
+
+                    <div class="card-body p-4">
+                        <h5 class="card-title fw-bold">{{ course.title }}</h5>
+                        
+                        <p class="card-text text-muted mt-3">
+                            
+                        </p>
+
+                        <div class="mt-4">
+                            <p><strong>Уровень:</strong> {{ course.get_level_display }}</p>
+                            <p><strong>Длительность:</strong> {{ course.duration_months }} месяцев</p>
+                            <h4 class="text-primary fw-bold mt-3">{{ course.price }} ₽</h4>
+                        </div>
+                    </div>
+
+                    <div class="card-footer bg-white p-4">
+                        <a href="#" class="btn btn-dark w-100">Записаться на курс</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Карточка 2 -->
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="https://placehold.co/300x180" class="card-img-top" alt="Экзамены">
-                <div class="card-body">
-                    <h5 class="card-title">Подготовка к экзаменам</h5>
-                    <p class="card-text">ЕГЭ и ОГЭ с разбором всех форматов заданий.</p>
-                    <a href="#" class="btn btn-dark">Подробнее</a>
+        {% empty %}
+            <div class="col-12">
+                <div class="alert alert-info text-center py-5">
+                    <h4>К сожалению, курсов пока нет</h4>
+                    <p>Заходите позже!</p>
                 </div>
             </div>
-        </div>
-        <!-- Карточка 3 -->
-        <div class="col-md-4">
-            <div class="card mb-4">
-                <img src="https://placehold.co/300x180" class="card-img-top" alt="Курсы">
-                <div class="card-body">
-                    <h5 class="card-title">Купить подписку на курс</h5>
-                    <p class="card-text">Оффлайн видеоуроки по уровням.</p>
-                    <a href="#" class="btn btn-dark">Подробнее</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

@@ -1,9 +1,7 @@
 from django.contrib import admin
-from django.urls import path
-from pages.views import index, about
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name='home'),
-    path('about/', about, name='about'),
+    path('', include('pages.urls')),
 ]

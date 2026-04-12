@@ -3,7 +3,6 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
-
     <h1>{{ welcome_message }}</h1>
     <p class="lead">Онлайн-занятия с индивидуальным подходом</p>
     
@@ -26,8 +25,6 @@
 
                     <div class="card-body p-4">
                         <h5 class="card-title fw-bold">{{ course.title }}</h5>
-
-                        {# Выводим описание курса, обрезанное до 20 слов для аккуратного отображения #}
                         <p class="card-text text-muted mt-3">{{ course.description|truncatewords:20 }}</p>
 
                         <div class="mt-4">
@@ -38,7 +35,7 @@
                     </div>
 
                     <div class="card-footer bg-white p-4">
-                        <a href="#" class="btn btn-dark w-100">Записаться на курс</a>
+                        <a href="{% url 'course_detail' course.pk %}" class="btn btn-dark w-100">Подробнее о курсе</a>
                     </div>
                 </div>
             </div>
@@ -51,5 +48,4 @@
             </div>
         {% endfor %}
     </div>
-
 {% endblock %}
